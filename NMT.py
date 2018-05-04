@@ -411,6 +411,7 @@ class ChatBotModel (object):
                     self.gradient_norms.append(norm)
                     self.train_ops.append(self.optimizer.apply_gradients(zip(clipped_grads, trainables), 
                                                             global_step=self.global_step))
+                    print('Creating opt for bucket {}'.format(bucket))
                     
     def __init__ (self, isTrain=1):
         if isTrain == 1:
@@ -456,7 +457,7 @@ class ChatBotModel (object):
 
 def _get_user_input():
     """ Get user's input, which will be transformed into encoder input later """
-    print("> ", end="")
+    print("> ")
     sys.stdout.flush()
     return sys.stdin.readline()
 
